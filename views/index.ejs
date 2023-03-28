@@ -1,1 +1,7 @@
-Main Page
+<h2>Recently Added</h2>
+
+<div>
+    <% books.forEach(book => { %>
+        <img src="<%= book.coverImagePath %>" width="150" height="150">
+    <% }) %>
+</div>
