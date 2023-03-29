@@ -61,7 +61,7 @@ router.post('/', upload.single('cover') ,async (req,res) => {
         if(book.coverImageName != null){
             removeBookCover(book.coverImageName)
         }
-        renderNewPage(res, new Book(), true)
+        renderNewPage(res, book, true)
         console.error(error)
     }
 })
