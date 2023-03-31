@@ -2,11 +2,11 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config()
 }
 
-
 const express = require('express') // importing express
 const app = express() // getting the app portion from the express package we imported
 const expressLayouts = require('express-ejs-layouts') // importing express layout package
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
@@ -16,6 +16,7 @@ app.set('view engine','ejs') // setting the view engine to ejs
 app.set('views', __dirname + '/views') // setting the location of views
 app.set('layout', 'layouts/layout') // setting the base layout
 app.use(expressLayouts) // setting to use the express layouts
+app.use(methodOverride('_method'))
 app.use(express.static('public')) // telling where our public files are
 app.use(bodyParser.urlencoded({ limit:'10mb', extended:false }));
 
